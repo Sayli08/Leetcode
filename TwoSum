@@ -1,0 +1,78 @@
+class Solution {
+   // public int[] twoSum(int[] nums, int target) {
+    //Approach 1: Using nested for loop
+       /*if( nums.length==0){ return null;} 
+       for(int i=0;i<nums.length;i++){//2
+           for(int j=i+1;j<nums.length;j++){//7,11
+               if(nums[j]+nums[i]== target){//2+7==9, 2+11==9
+                return new int[]{i,j};
+               }
+           }
+       }
+    return null;       
+    }*/
+/*Time Complexity : 0(n^2)
+  Space Complexity :O(1)*/
+   
+    // Approach 2: Using HashMap
+/*  
+    Map<Integer,Integer> map = new HashMap<>();
+    for(int i=0;i<nums.length;i++){
+        map.put(nums[i],i);
+    }
+    for(int i=0;i<nums.length;i++){
+        int complement = target -nums[i];
+
+        if(map.containsKey(complement)&&map.get(complement)!=i){
+            return new int[]{i, map.get(complement)};
+        }
+    }
+    return null;
+  }
+}
+/* Time Complexity : 0(n^2)
+  Space Complexity :O(1)*/
+
+  // Approach 3( HashMap with one pass)
+ /*   public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map =new HashMap<Integer,Integer>();
+        for(int i=0;i<nums.length;i++){
+            int complement = target-nums[i];
+            if(map.containsKey(complement)){
+                return new int[]{map.get(complement),i};
+            }
+            map.put(nums[i],i);
+        }
+        return null;
+    }
+} */
+
+// Approach 4 (HashMap for storing complement of the numbers)
+
+// Input: nums = [2,1,4], target = 6   Output: [0,2]
+/*
+6-2 = 4
+6-1 = 5
+
+map
+key value
+4     0
+5     1
+
+
+*/
+
+   public int[] twoSum(int[] nums, int target) {
+       Map<Integer,Integer> map = new HashMap<>();
+       for(int i=0;i<nums.length;i++){
+           Integer complementIndex = map.get(nums[i]);
+           if(complementIndex!=null){
+               return new int[] {complementIndex, i};
+           }
+           int complement =  target-nums[i];
+           map.put(complement,i);
+       }
+       return null;
+
+   }
+}   
