@@ -1,3 +1,5 @@
+// TWO POINTER APPROACH
+
 class Solution {
     public int romanToInt(String s) {
        // Step 1: Initialize a hashmap to store Roman numeral symbols and their integer values
@@ -37,3 +39,6 @@ class Solution {
  }
 
 }
+
+// Time Complexity : O(n)
+// Space Complexity : O(n)
