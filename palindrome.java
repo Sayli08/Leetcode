@@ -145,8 +145,20 @@ If the first half is 12 and the reversed second half is also 12, it's a palindro
 
 
 
-/* Apprach 3
+/* Apprach 3 ( Reverse second half of the string and compare with first half) */
+
 Time Complexity : 0(log10 n)
 
-Space Complexity : 0(1) OR O(log10n)/2
+Space Complexity : 0(1) OR O (log10 (n/2))
+*/
+
+
+
+/* EXTRA INFO */
+
+/*  Integer to String Converstion
+
+1. String strX = Integer.toString(x); 
+2. String original = String.valueOf(x);
+
 */
