@@ -161,4 +161,7 @@ Space Complexity : 0(1) OR O (log10 (n/2))
 1. String strX = Integer.toString(x); 
 2. String original = String.valueOf(x);
 
+String.valueOf() internally uses Integer.toString()
+Reference: String.valueOf internally uses Integer.toString 
+
 */
