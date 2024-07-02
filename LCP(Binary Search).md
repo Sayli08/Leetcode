@@ -43,15 +43,15 @@ class Solution {
 
 ### Steps of the Algorithm
 
-### Finding the Minimum Length String
+### 1] Finding the Minimum Length String
 This requires a single pass through the array of strings to find the length of the shortest string.
 - **Time complexity**: O(N), where \(N\) is the number of strings.
 
-### Binary Search
+### 2] Binary Search
 We perform a binary search on the length of the prefix, which ranges from 1 to the length of the shortest string, let's denote it as \(L\).
 - The number of iterations in the binary search is (O(log L)).
 
-### Checking the Common Prefix
+### 3] Checking the Common Prefix
 For each midpoint in the binary search, we need to check if the prefix of that length is common among all strings.
 - In the worst case, this involves comparing the prefix with each string, which is (O(N) comparisons, and each comparison can be up to L characters long.
 - Thus, the time complexity for checking the common prefix is O(N * L).
