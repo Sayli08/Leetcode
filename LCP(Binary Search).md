@@ -78,5 +78,22 @@ The space used for the input strings themselves does not count towards extra spa
 - **Time Complexity**: O(N * L * log L), where N is the number of strings and L is the length of the shortest string.
 - **Space Complexity**: O(1) extra space.
 
+## Example
+
+Consider the strings ["flower", "flow", "flight"]:
+
+- The shortest string is "flow" with a length of 4.
+
+- Start binary search on length from 0 to 4.
+
+- Check if the prefix of length 2 ("fl") is common among all strings.
+
+- Since it is common, check for a longer prefix by setting low to 3.
+
+- Check if the prefix of length 3 ("flo") is common among all strings.
+
+- Since it is not common, check for a shorter prefix by setting high to 2.
+
+- Continue until low exceeds high.
   
 
