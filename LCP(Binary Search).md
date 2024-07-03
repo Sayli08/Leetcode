@@ -84,7 +84,7 @@ Consider the strings ["flower", "flow", "flight"]:
 
 - The shortest string is "flow" with a length of 4.
 
-- Start binary search on length from 0 to 4.
+- Start binary search on length from 1 to 4.
 
 - Check if the prefix of length 2 ("fl") is common among all strings.
 
