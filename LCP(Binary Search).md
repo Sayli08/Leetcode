@@ -97,3 +97,65 @@ Consider the strings ["flower", "flow", "flight"]:
 - Continue until low exceeds high.
   
 
+# Finding the Longest Common Prefix using Binary Search
+
+This document explains how to find the longest common prefix among the strings "flower," "flow," and "flight" using a binary search approach.
+
+## Steps
+
+### 1. Initialization
+- Shortest string: "flow" with length 4.
+- `low` = 1, `high` = 4.
+
+### 2. First Iteration
+- Calculate `mid`: 
+  \[
+  \text{mid} = \left\lfloor \frac{\text{low} + \text{high}}{2} \right\rfloor = \left\lfloor \frac{1 + 4}{2} \right\rfloor = 2
+  \]
+- Check if the prefix of length `mid` (2) is common among all strings: "fl".
+
+  Helper function checks:
+  - "flower" starts with "fl" -> True
+  - "flow" starts with "fl" -> True
+  - "flight" starts with "fl" -> True
+
+  Since "fl" is a common prefix, adjust `low` to `mid + 1`:
+  - `low` = 2 + 1 = 3.
+
+### 3. Second Iteration
+- Calculate `mid`: 
+  \[
+  \text{mid} = \left\lfloor \frac{\text{low} + \text{high}}{2} \right\rfloor = \left\lfloor \frac{3 + 4}{2} \right\rfloor = 3
+  \]
+- Check if the prefix of length `mid` (3) is common among all strings: "flo".
+
+  Helper function checks:
+  - "flower" starts with "flo" -> True
+  - "flow" starts with "flo" -> True
+  - "flight" starts with "flo" -> False
+
+  Since "flo" is not a common prefix, adjust `high` to `mid - 1`:
+  - `high` = 3 - 1 = 2.
+
+### 4. Termination
+- Now, `low` (3) > `high` (2), so the search terminates.
+
+The longest common prefix length we found was `high` = 2. Therefore, the longest common prefix is "fl".
+
+## Summary of Iterations
+
+### 1. First Iteration
+- `low` = 1, `high` = 4, `mid` = 2
+- Check prefix of length `mid` (2): "fl"
+- "fl" is common among all strings -> `low` = 3
+
+### 2. Second Iteration
+- `low` = 3, `high` = 4, `mid` = 3
+- Check prefix of length `mid` (3): "flo"
+- "flo" is not common among all strings -> `high` = 2
+
+### 3. Termination
+- `low` = 3, `high` = 2
+- Longest common prefix length is `high` = 2, so the prefix is "fl".
+
+This binary search approach efficiently narrows down the longest common prefix by checking midpoints and adjusting the search space accordingly.
