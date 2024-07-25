@@ -171,3 +171,26 @@ The longest common prefix length we found was `high` = 2. Therefore, the longest
 
 This binary search approach efficiently narrows down the longest common prefix by checking midpoints and adjusting the search space accordingly.
 
+# Time and Space Complexity
+
+### Time Complexity
+
+1. **Initial Checks and Finding Minimum Length:**
+   - Checking if the array is null or empty: O(1)
+   - Finding the minimum length of the strings: O(N), where N is the number of strings.
+
+2. **Binary Search:**
+   - Binary search on the length of the common prefix: O(log L), where L is the length of the shortest string.
+   - Checking if a prefix is common among all strings: O(N * L)
+
+3. **Total Time Complexity:**
+   - The combined complexity for the binary search and prefix check is O(N * L * log L).
+
+### Space Complexity
+
+1. **Auxiliary Space:**
+   - We use a fixed amount of extra space for variables and do not allocate additional space proportional to the input size.
+
+2. **Total Space Complexity:**
+   - The space complexity is O(1) since we perform all operations in-place without using extra space that scales with the input size.
+
