@@ -18,6 +18,7 @@
 ## Introduction
 
 This document explains the divide and conquer approach for finding the longest common prefix among an array of strings. We'll walk through each step, analyze the time and space complexity, and provide a clear and simple explanation of how the algorithm works.
+Link for Divide and Conquer Algorithm : https://github.com/Sayli08/Algorithms/blob/main/DivideAndConquerStrategy.md
 
 ## Step 1: Establish the Base Case
 - If the array of strings is empty, return an empty string.
