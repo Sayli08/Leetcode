@@ -1,17 +1,35 @@
 
 # Divide and Conquer Approach for Longest Common Prefix
 
-**Step 1: Establish the Base Case**
+### Index
+1. [Introduction](#introduction)
+2. [Step 1: Establish the Base Case](#step-1-establish-the-base-case)
+3. [Step 2: Divide the Problem](#step-2-divide-the-problem)
+4. [Step 3: Conquer the Problem](#step-3-conquer-the-problem)
+5. [Step 4: Combine the Results](#step-4-combine-the-results)
+6. [Code Implementation](#code-implementation)
+7. [Time Complexity](#time-complexity)
+8. [Space Complexity](#space-complexity)
+9. [Conceptual Explanation of Time Complexity](#conceptual-explanation-of-time-complexity)
+10. [Simplified Explanation](#simplified-explanation)
+
+---
+
+## Introduction
+
+This document explains the divide and conquer approach for finding the longest common prefix among an array of strings. We'll walk through each step, analyze the time and space complexity, and provide a clear and simple explanation of how the algorithm works.
+
+## Step 1: Establish the Base Case
 - If the array of strings is empty, return an empty string.
 - If the array contains only one string, return that string as the prefix.
 
 #### Example:
 - Consider the array `["flower", "flow", "flight"]`. 
 
-**Step 2: Divide the Problem**
+## Step 2: Divide the Problem
 - We first divide this array into two halves: `["flower", "flow"]` and `["flight"]`.
 
-**Step 3: Conquer the Problem**
+## Step 3: Conquer the Problem
 - We further divide each half. The left half `["flower", "flow"]` is divided into `["flower"]` and `["flow"]`.
 - We keep doing this recursively until we reach the base case where each segment contains only one string:
   - `["flower"]`
@@ -22,7 +40,7 @@
   - For `["flow"]`, the longest common prefix is "flow".
   - For `["flight"]`, the longest common prefix is "flight".
 
-**Step 4: Combine the Results**
+## Step 4: Combine the Results
 - For the left half `["flower", "flow"]`, we compare "flower" and "flow" to find the common prefix, which is "fl".
 - The right half contains only one string "flight", so its prefix remains "flight".
 - Now, we combine the results from both halves. Comparing "fl" with "flight" character by character, the longest common prefix for the entire array is "fl".
@@ -43,7 +61,8 @@ Here's how the process is visualized:
 
 ---
 
-Code
+## Code Implementation
+
 ```java
 public String longestCommonPrefix(String[] strs) {
     if (strs == null || strs.length == 0) return "";    
@@ -71,7 +90,10 @@ String commonPrefix(String left,String right) {
     return left.substring(0, min);
 } 
 ```
+
 ---
+
+## Time Complexity
 
 ### Recurrence Relation
 The recurrence relation for the problem is:
@@ -97,10 +119,11 @@ Here:
 - `f(n) = O(m)`, which can be interpreted as `O(n^0 * m)`, where `k = 0` and `p = 0`.
 
 ### Step 2: Calculate the Two Key Values
+
 1. **Compute `log_b a`:**
 
    ```
-   log_b a = log_2 2 = 1
+   log_b(a) = log_2(2) = 1
    ```
 
 2. **Determine `k`:**
@@ -127,10 +150,6 @@ Now, let’s compare `log_b a` with `k`:
     T(n) = O(n * m)
     ```
 
-Here's the explanation in Markdown format without LaTeX:
-
----
-
 ### Understanding the Contribution of `f(n) = O(m)`
 
 When we use the Master Theorem to solve recurrence relations like:
@@ -139,7 +158,8 @@ When we use the Master Theorem to solve recurrence relations like:
 T(n) = 2T(n/2) + f(n)
 ```
 
-the result depends on how the function `f(n)` compares to the other parts of the recurrence. Here, `f(n) = O(m)` is the cost of the "combine" step in the divide and conquer algorithm, where you merge the results of the two recursive calls.
+the result depends on how the function `f(n)` compares to the other parts of the recurrence.
+Here, `f(n) = O(m)` is the cost of the "combine" step in the divide and conquer algorithm, where you merge the results of the two recursive calls.
 
 ### How the Master Theorem Applies Here
 
@@ -187,46 +207,26 @@ T(n) = O(n * m)
 
 Where `n` is the number of strings and `m` is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
 
---- 
+---
 
-### Step 4: Consider the Entire Problem
-Given that `S = m * n` represents the total number of characters in the array, and the Master Theorem has given us `T(n) = O(n * m)`, the time complexity can also be expressed as:
+## Space Complexity
 
-```
-T(n) = O(S)
-```
-
-where `S` is the total number of characters in the array.
-
-### Conclusion
-The time complexity for the `longestCommonPrefix` algorithm, considering the worst-case scenario where `n` strings each have a length `m`, is:
-
-```
-O(S) = O(m * n)
-```
-
-This matches the worst-case complexity derived earlier, confirming that the total time required is proportional to the total number of characters in the input.
-
---- 
-# DETAILS
-
-#### A] Prepare Recurrence Relation :
-
-Algorithm longestCommonPrefix(strs, l , r); ----------- T(n)
- lcpLeft = longestCommonPrefix(strs, l , mid); -------------- T(n/2)
- lcpRight = longestCommonPrefix(strs, mid + 1,r); ------------ T(n/2)
- commonPrefix(l,r) ------------- m}
------------------------------------------------------------------------------------
- T(n) = 2 T(n/2) + m    Master Theorem, 
-
-### B] Write a Recurrence Relation 
+### Recurrence Relation
 
 T(n) = O(m)                for n = 1
 T(n) = 2T(n/2) + O(m)      for n > 1
 
+---
 
-C] 
-### Conceptual Explanation of the Time Complexity:
+
+
+### Space Complexity : `O(m⋅logn)`
+
+There is a memory overhead since we store recursive calls in the execution stack. There are `log n` recursive calls, each requires `m` space to store the result, so space complexity is `O(m⋅logn)`.
+
+---
+
+## Conceptual Explanation of the Time Complexity:
 
 1. **Problem Splitting**:
    - Each split divides the problem size in half, leading to a logarithmic depth of recursion (`log n`).
@@ -235,17 +235,19 @@ C]
    - At each level, strings are compared character by character, potentially involving all characters in the shortest string (`m`).
 
 3. **Total Work**:
-   - The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to `O(n \cdot m \cdot log n)`.
+   - The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to `O(n * m * log n)`.
 
-### Simplified Explanation:
+---
 
-- **Analogy**: 
+## Simplified Explanation
+
+ **Analogy**: 
 - Imagine organizing a large group of people to find a common trait. 
 - By repeatedly splitting the group in half and identifying common traits within smaller groups, you simplify the task. Finally, you combine the results from each smaller group to find the common trait for the entire group.
 
-- **High-Level Overview**: 
+ **High-Level Overview**: 
 - Each split simplifies the problem until you're working with individual strings. 
 - Then, building back up, you use the results from these smaller tasks to efficiently solve the larger problem.
 
-By explaining the recurrence relation alongside the divide and conquer approach, you demonstrate the efficiency of this method and 
-how it effectively handles the problem by breaking it down into smaller, more manageable tasks.
+--- 
+
