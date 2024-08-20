@@ -1,4 +1,5 @@
 
+
 # Divide and Conquer Approach for Longest Common Prefix
 
 ### Index
@@ -19,7 +20,7 @@
 
 This document explains the divide and conquer approach for finding the longest common prefix among an array of strings. We'll walk through each step, analyze the time and space complexity, and provide a clear and simple explanation of how the algorithm works.
 
-Link for Divide and Conquer Algorithm : https://github.com/Sayli08/Algorithms/blob/main/DivideAndConquerStrategy.md
+[Link for Divide and Conquer Algorithm](https://github.com/Sayli08/Algorithms/blob/main/DivideAndConquerStrategy.md)
 
 ## Step 1: Establish the Base Case
 - If the array of strings is empty, return an empty string.
@@ -100,114 +101,132 @@ String commonPrefix(String left,String right) {
 ### Recurrence Relation
 The recurrence relation for the problem is:
 
-```
+$$
 T(n) = 2T(n/2) + O(m)
-```
+$$
 
 where:
-- `n` is the number of strings.
-- `m` is the length of the strings (assuming all strings have the same length in the worst case).
+- \( n \) is the number of strings.
+- \( m \) is the length of the strings (assuming all strings have the same length in the worst case).
 
 ### Step 1: Compare with the General Form
 The general form of the recurrence relation in the Master Theorem is:
 
-```
+$$
 T(n) = aT(n/b) + f(n)
-```
+$$
 
 Here:
-- `a = 2`
-- `b = 2`
-- `f(n) = O(m)`, which can be interpreted as `O(n^0 * m)`, where `k = 0` and `p = 0`.
+- \( a = 2 \)
+- \( b = 2 \)
+
+$$
+f(n) = O(m)
+$$
+
+which can be interpreted as 
+
+$$
+O(n^0 \cdot m)
+$$
+
+where \( k = 0 \) and \( p = 0 \).
 
 ### Step 2: Calculate the Two Key Values
 
-1. **Compute `log_b a`:**
+1. **Compute \( \log_b a \):**
 
-   ```
-   log_b(a) = log_2(2) = 1
-   ```
+   $$
+   \log_b(a) = \log_2(2) = 1
+   $$
 
-2. **Determine `k`:**
+2. **Determine \( k \):**
 
-   - Here, `f(n) = O(m)`, which can be treated as `f(n) = O(n^0 * m)`.
-   - So, `k = 0` (since `n^0 = 1`).
+   - Here, \( f(n) = O(m) \), which can be treated as 
+
+     $$
+     O(n^0 \cdot m)
+     $$
+
+   - So, \( k = 0 \) (since \( n^0 = 1 \)).
 
 ### Step 3: Apply the Master Theorem Cases
-Now, let’s compare `log_b a` with `k`:
+Now, let’s compare \( \log_b a \) with \( k \):
 
-- **Case 1: `log_b a > k`**
+- **Case 1: \( \log_b a > k \)**
 
-  Since `log_2 2 = 1 > 0 = k`, this situation corresponds to **Case 1** of the Master Theorem.
+  Since \( \log_2 2 = 1 > 0 = k \), this situation corresponds to **Case 1** of the Master Theorem.
 
-  - According to **Case 1**, the time complexity is dominated by the `T(n/b)` part of the recurrence:
+  - According to **Case 1**, the time complexity is dominated by the \( T(n/b) \) part of the recurrence:
 
-    ```
-    T(n) = Theta(n^log_b a) = Theta(n^1) = Theta(n)
-    ```
+    $$
+    T(n) = \Theta(n^{\log_b a}) = \Theta(n^1) = \Theta(n)
+    $$
 
-  - However, since `f(n) = O(m)` contributes additional complexity, the overall time complexity is:
+  - However, since \( f(n) = O(m) \) contributes additional complexity, the overall time complexity is:
 
-    ```
-    T(n) = O(n * m)
-    ```
+    $$
+    T(n) = O(n \cdot m)
+    $$
 
-### Understanding the Contribution of `f(n) = O(m)`
+### Understanding the Contribution of \( f(n) = O(m) \)
 
 When we use the Master Theorem to solve recurrence relations like:
 
-```
+$$
 T(n) = 2T(n/2) + f(n)
-```
+$$
 
-the result depends on how the function `f(n)` compares to the other parts of the recurrence.
-Here, `f(n) = O(m)` is the cost of the "combine" step in the divide and conquer algorithm, where you merge the results of the two recursive calls.
+the result depends on how the function \( f(n) \) compares to the other parts of the recurrence.
+Here, \( f(n) = O(m) \) is the cost of the "combine" step in the divide and conquer algorithm, where you merge the results of the two recursive calls.
 
 ### How the Master Theorem Applies Here
 
 We computed two key values:
-- `log_b a = 1`, where `b = 2` and `a = 2`.
-- `k = 0`, because `f(n) = O(n^0 * m)`.
+- \( \log_b a = 1 \), where \( b = 2 \) and \( a = 2 \).
+- \( k = 0 \), because \( f(n) = O(n^0 \cdot m) \).
 
-These values tell us we're in **Case 1** of the Master Theorem, where `log_b a > k`. In this case, the time complexity is dominated by the recursive calls, giving us:
+These values tell us we're in **Case 1** of the Master Theorem, where \( \log_b a > k \). In this case, the time complexity is dominated by the recursive calls, giving us:
 
-```
-T(n) = Theta(n^log_b a) = Theta(n)
-```
+$$
+T(n) = \Theta(n^{\log_b a}) = \Theta(n)
+$$
 
-### Considering the Function `f(n) = O(m)`
+### Considering the Function \( f(n) = O(m) \)
 
-The Master Theorem helps us determine the complexity based on the comparison between `f(n)` and the recursive structure. Here, `f(n) = O(m)` is the additional work done at each level of recursion, which is not simply absorbed by the recursive calls.
+The Master Theorem helps us determine the complexity based on the comparison between \( f(n) \) and the recursive structure. Here, \( f(n) = O(m) \) is the additional work done at each level of recursion, which is not simply absorbed by the recursive calls.
 
-This is because the total work at each level is not just a constant (which would be the case if `m` were a constant) but instead grows with `m`.
+This is because the total work at each level is not just a constant (which would be the case if \( m \) were a constant) but instead grows with \( m \).
 
 In the context of the `longestCommonPrefix` problem:
-- `m` represents the length of the strings being compared.
-- Each recursive step involves comparing up to `m` characters.
+- \( m \) represents the length of the strings being compared.
+- Each recursive step involves comparing up to \( m \) characters.
 
-Since `f(n) = O(m)` scales with `m`, this additional complexity needs to be included in the overall time complexity.
+Since \( f(n) = O(m) \) scales with \( m \), this additional complexity needs to be included in the overall time complexity.
 
-### Why `T(n) = O(n * m)`?
+### Why \( T(n) = O(n \cdot m) \)?
 
-1. **Recursive Calls**: The recursive part of the relation `2T(n/2)` simplifies to `O(n)`, which represents the number of levels in the recursion tree.
+1. **Recursive Calls**: The recursive part of the relation \( 2T(n/2) \) simplifies to \( O(n) \), which represents the number of levels in the recursion tree.
 
 2. **Merge Step at Each Level**: 
-- Each level of recursion involves a merge step that takes `O(m)` time. 
-- Since there are `O(log n)` levels in the recursion tree, and each level potentially requires `O(m)` time for the merge step, the overall complexity involves combining both these factors.
+- Each level of recursion involves a merge step that takes \( O(m) \) time. 
+- Since there are \( O(\log n) \) levels in the recursion tree, and each level potentially requires \( O(m) \) time for the merge step, the overall complexity involves combining both these factors.
 
 3. **Total Complexity**: 
-   - At each level of recursion, `O(m)` work is done.
-   - There are `O(log n)` levels of recursion, but since `m` does not change across levels, the total time across all levels is `O(n * m)`.
+   - At each level of recursion, \( O(m) \) work is done.
+   - There are \( O(\log n) \) levels of recursion, but since \( m \) does not change across levels, the total time across all levels is \( O(n \cdot m) \).
 
-Thus, even though the Master Theorem initially suggests `O(n)`, the actual time complexity becomes `O(n * m)` because the function `f(n) = O(m)` adds significant work at each level of recursion.
+Thus, even though the Master Theorem initially suggests \( O(n) \), the actual time complexity becomes \( O(n \cdot m) \) because the function \( f
+
+(n) = O(m) \) adds significant work at each level of recursion.
 
 This is why the overall time complexity is:
 
-```
-T(n) = O(n * m)
-```
+$$
+T(n) = O(n \cdot m)
+$$
 
-Where `n` is the number of strings and `m` is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
+Where \( n \) is the number of strings and \( m \) is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
 
 ---
 
@@ -215,29 +234,29 @@ Where `n` is the number of strings and `m` is the length of the strings. This pr
 
 ### Recurrence Relation
 
-T(n) = O(m)                for n = 1
-T(n) = 2T(n/2) + O(m)      for n > 1
+$$
+T(n) = O(m) \quad \text{for} \ n = 1 \\
+T(n) = 2T(n/2) + O(m) \quad \text{for} \ n > 1
+$$
 
 ---
 
+### Space Complexity : `O(m \cdot \log n)`
 
-
-### Space Complexity : `O(m⋅logn)`
-
-There is a memory overhead since we store recursive calls in the execution stack. There are `log n` recursive calls, each requires `m` space to store the result, so space complexity is `O(m⋅logn)`.
+There is a memory overhead since we store recursive calls in the execution stack. There are \( \log n \) recursive calls, each requiring \( m \) space to store the result, so space complexity is \( O(m \cdot \log n) \).
 
 ---
 
 ## Conceptual Explanation of the Time Complexity:
 
 1. **Problem Splitting**:
-   - Each split divides the problem size in half, leading to a logarithmic depth of recursion (`log n`).
+   - Each split divides the problem size in half, leading to a logarithmic depth of recursion (\( \log n \)).
 
 2. **Work Performed at Each Level**:
-   - At each level, strings are compared character by character, potentially involving all characters in the shortest string (`m`).
+   - At each level, strings are compared character by character, potentially involving all characters in the shortest string (\( m \)).
 
 3. **Total Work**:
-   - The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to `O(n * m * log n)`.
+   - The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to \( O(n \cdot m \cdot \log n) \).
 
 ---
 
@@ -251,5 +270,4 @@ There is a memory overhead since we store recursive calls in the execution stack
 - Each split simplifies the problem until you're working with individual strings. 
 - Then, building back up, you use the results from these smaller tasks to efficiently solve the larger problem.
 
---- 
-
+---
