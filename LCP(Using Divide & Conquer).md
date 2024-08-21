@@ -1,5 +1,10 @@
 
 
+
+
+
+
+
 # Divide and Conquer Approach for Longest Common Prefix
 
 ### Index
@@ -132,23 +137,21 @@ $$
 
 where \( k = 0 \) and \( p = 0 \).
 
+
+
 ### Step 2: Calculate the Two Key Values
 
-1. **Compute \( \log_b a \):**
+$$
+\text{Compute } \log_b(a) = \log_2(2) = 1
+$$
 
-   $$
-   \log_b(a) = \log_2(2) = 1
-   $$
+$$
+\text{Here, } f(n) = O(m), \text{ which can be treated as } O(n^0 \cdot m)
+$$
 
-2. **Determine \( k \):**
-
-   - Here, \( f(n) = O(m) \), which can be treated as 
-
-     $$
-     O(n^0 \cdot m)
-     $$
-
-   - So, \( k = 0 \) (since \( n^0 = 1 \)).
+$$
+\text{So, } k = 0 \text{ (since } n^0 = 1)
+$$
 
 ### Step 3: Apply the Master Theorem Cases
 Now, let’s compare \( \log_b a \) with \( k \):
@@ -216,9 +219,7 @@ Since \( f(n) = O(m) \) scales with \( m \), this additional complexity needs to
    - At each level of recursion, \( O(m) \) work is done.
    - There are \( O(\log n) \) levels of recursion, but since \( m \) does not change across levels, the total time across all levels is \( O(n \cdot m) \).
 
-Thus, even though the Master Theorem initially suggests \( O(n) \), the actual time complexity becomes \( O(n \cdot m) \) because the function \( f
-
-(n) = O(m) \) adds significant work at each level of recursion.
+Thus, even though the Master Theorem initially suggests \( O(n) \), the actual time complexity becomes \( O(n \cdot m) \) because the function \( f(n) = O(m) \) adds significant work at each level of recursion.
 
 This is why the overall time complexity is:
 
@@ -226,7 +227,8 @@ $$
 T(n) = O(n \cdot m)
 $$
 
-Where \( n \) is the number of strings and \( m \) is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
+where \( n \) is the number of strings and \( m \) is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
+
 
 ---
 
