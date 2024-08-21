@@ -1,9 +1,6 @@
+Here’s your document formatted consistently with LaTeX text mode for all the mathematical and explanatory text, ensuring it is presented clearly and uniformly.
 
-
-
-
-
-
+---
 
 # Divide and Conquer Approach for Longest Common Prefix
 
@@ -137,8 +134,6 @@ $$
 
 where \( k = 0 \) and \( p = 0 \).
 
-
-
 ### Step 2: Calculate the Two Key Values
 
 $$
@@ -159,9 +154,6 @@ $$
 \text{Now, let’s compare } \log_b(a) \text{ with } k:
 $$
 
-
-
-
 $$
 \text{Case 1: } \log_b a > k
 $$
@@ -181,7 +173,6 @@ However, since \( f(n) = O(m) \) contributes additional complexity, the overall 
 $$
 T(n) = O(n \cdot m)
 $$
-
 
 ### Understanding the Contribution of \( f(n) = O(m) \)
 
@@ -226,28 +217,55 @@ In the context of the `longestCommonPrefix` problem:
 
 Since \( f(n) = O(m) \) scales with \( m \), this additional complexity needs to be included in the overall time complexity.
 
-### Why \( T(n) = O(n \cdot m) \)?
+$$
+\text{Why } T(n) = O(n \cdot m) \text{?}
+$$
 
-1. **Recursive Calls**: The recursive part of the relation \( 2T(n/2) \) simplifies to \( O(n) \), which represents the number of levels in the recursion tree.
+$$
+\text{1. Recursive Calls: The recursive part of the relation } 2T(n/2) \text{ simplifies to } O(n), \text{ which represents the number of levels in the recursion tree.}
+$$
 
-2. **Merge Step at Each Level**: 
-- Each level of recursion involves a merge step that takes \( O(m) \) time. 
-- Since there are \( O(\log n) \) levels in the recursion tree, and each level potentially requires \( O(m) \) time for the merge step, the overall complexity involves combining both these factors.
+$$
+\text{2. Merge Step at Each Level:}
+$$
 
-3. **Total Complexity**: 
-   - At each level of recursion, \( O(m) \) work is done.
-   - There are \( O(\log n) \) levels of recursion, but since \( m \) does not change across levels, the total time across all levels is \( O(n \cdot m) \).
+$$
+\text{Each level of recursion involves a merge step that takes } O(m) \text{ time.}
+$$
 
-Thus, even though the Master Theorem initially suggests \( O(n) \), the actual time complexity becomes \( O(n \cdot m) \) because the function \( f(n) = O(m) \) adds significant work at each level of recursion.
+$$
+\text{Since there are } O(\log n) \text{ levels in the recursion tree, and each level potentially requires } O(m) \text{ time for the merge step, the overall complexity involves combining both these factors.}
+$$
 
-This is why the overall time complexity is:
+$$
+\text{3. Total Complexity:}
+$$
+
+$$
+\text{At each level of recursion, } O(m) \text{ work is done.}
+$$
+
+$$
+\text{There are } O(\
+
+log n) \text{ levels of recursion, but since } m \text{ does not change across levels, the total time across all levels is } O(n \cdot m).
+$$
+
+$$
+\text{Thus, even though the Master Theorem initially suggests } O(n), \text{ the actual time complexity becomes } O(n \cdot m) \text{ because the function } f(n) = O(m) \text{ adds significant work at each level of recursion.}
+$$
+
+$$
+\text{This is why the overall time complexity is:}
+$$
 
 $$
 T(n) = O(n \cdot m)
 $$
 
-where \( n \) is the number of strings and \( m \) is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.
-
+$$
+\text{where } n \text{ is the number of strings and } m \text{ is the length of the strings. This product represents the total number of character comparisons needed to find the longest common prefix across all strings.}
+$$
 
 ---
 
@@ -276,18 +294,35 @@ $$
 
 ---
 
-## Conceptual Explanation of the Time Complexity:
+$$
+\text{Conceptual Explanation of the Time Complexity:}
+$$
 
-1. **Problem Splitting**:
-   - Each split divides the problem size in half, leading to a logarithmic depth of recursion (\( \log n \)).
+$$
+\text{1. Problem Splitting:}
+$$
 
-2. **Work Performed at Each Level**:
-   - At each level, strings are compared character by character, potentially involving all characters in the shortest string (\( m \)).
+$$
+\text{Each split divides the problem size in half, leading to a logarithmic depth of recursion } (\log n).
+$$
 
-3. **Total Work**:
-   - The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to \( O(n \cdot m \cdot \log n) \).
+$$
+\text{2. Work Performed at Each Level:}
+$$
 
----
+$$
+\text{At each level, strings are compared character by character, potentially involving all characters in the shortest string } (m).
+$$
+
+$$
+\text{3. Total Work:}
+$$
+
+$$
+\text{The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to } O(n \cdot m \cdot \log n).
+$$
+
+----
 
 ## Simplified Explanation
 
@@ -300,3 +335,5 @@ $$
 - Then, building back up, you use the results from these smaller tasks to efficiently solve the larger problem.
 
 ---
+
+This formatting uses consistent LaTeX text mode and ensures the mathematical expressions and explanatory text are presented clearly.
