@@ -154,23 +154,34 @@ $$
 $$
 
 ### Step 3: Apply the Master Theorem Cases
-Now, let’s compare \( \log_b a \) with \( k \):
 
-- **Case 1: \( \log_b a > k \)**
+$$
+\text{Now, let’s compare } \log_b(a) \text{ with } k:
+$$
 
-  Since \( \log_2 2 = 1 > 0 = k \), this situation corresponds to **Case 1** of the Master Theorem.
 
-  - According to **Case 1**, the time complexity is dominated by the \( T(n/b) \) part of the recurrence:
 
-    $$
-    T(n) = \Theta(n^{\log_b a}) = \Theta(n^1) = \Theta(n)
-    $$
 
-  - However, since \( f(n) = O(m) \) contributes additional complexity, the overall time complexity is:
+$$
+\text{Case 1: } \log_b a > k
+$$
 
-    $$
-    T(n) = O(n \cdot m)
-    $$
+$$
+\text{Since } \log_2 2 = 1 > 0 = k, \text{ this situation corresponds to Case 1 of the Master Theorem.}
+$$
+
+According to **Case 1**, the time complexity is dominated by the \( T(n/b) \) part of the recurrence:
+
+$$
+T(n) = \Theta(n^{\log_b a}) = \Theta(n^1) = \Theta(n)
+$$
+
+However, since \( f(n) = O(m) \) contributes additional complexity, the overall time complexity is:
+
+$$
+T(n) = O(n \cdot m)
+$$
+
 
 ### Understanding the Contribution of \( f(n) = O(m) \)
 
@@ -185,9 +196,17 @@ Here, \( f(n) = O(m) \) is the cost of the "combine" step in the divide and conq
 
 ### How the Master Theorem Applies Here
 
-We computed two key values:
-- \( \log_b a = 1 \), where \( b = 2 \) and \( a = 2 \).
-- \( k = 0 \), because \( f(n) = O(n^0 \cdot m) \).
+$$
+\text{We computed two key values:}
+$$
+
+$$
+\log_b a = 1, \text{ where } b = 2 \text{ and } a = 2.
+$$
+
+$$
+k = 0, \text{ because } f(n) = O(n^0 \cdot m).
+$$
 
 These values tell us we're in **Case 1** of the Master Theorem, where \( \log_b a > k \). In this case, the time complexity is dominated by the recursive calls, giving us:
 
@@ -243,9 +262,17 @@ $$
 
 ---
 
-### Space Complexity : `O(m \cdot \log n)`
+### Space Complexity : 
 
-There is a memory overhead since we store recursive calls in the execution stack. There are \( \log n \) recursive calls, each requiring \( m \) space to store the result, so space complexity is \( O(m \cdot \log n) \).
+$$
+\text{Space Complexity: } O(m \cdot \log n)
+$$
+
+$$
+\text{There is a memory overhead since we store recursive calls in the execution stack. 
+There are } \log n \text{ recursive calls, each requiring } m \text{ space to store the result, so space complexity is }
+ O(m \cdot \log n).
+$$
 
 ---
 
