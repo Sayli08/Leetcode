@@ -1,7 +1,3 @@
-Here’s your document formatted consistently with LaTeX text mode for all the mathematical and explanatory text, ensuring it is presented clearly and uniformly.
-
----
-
 # Divide and Conquer Approach for Longest Common Prefix
 
 ### Index
@@ -217,8 +213,9 @@ In the context of the `longestCommonPrefix` problem:
 
 Since \( f(n) = O(m) \) scales with \( m \), this additional complexity needs to be included in the overall time complexity.
 
+----- 
 $$
-\text{Why } T(n) = O(n \cdot m) \text{?}
+\text{**Why } T(n) = O(n \cdot m) \text**{?}
 $$
 
 $$
@@ -336,4 +333,3 @@ $$
 
 ---
 
-This formatting uses consistent LaTeX text mode and ensures the mathematical expressions and explanatory text are presented clearly.
