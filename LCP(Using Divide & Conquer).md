@@ -69,8 +69,11 @@ Here's how the process is visualized:
                    ["flower"]   ["flow"]   ["flight"]
                        |            |             |
                     {flower}      {flow}       {flight}
-                               \            /
-                                    {fl}
+                          \        /              |
+                             {fl}              {flight}
+                                    \           / 
+                                        {fl}
+   
 ```
 
 ---
