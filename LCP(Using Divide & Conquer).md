@@ -243,13 +243,20 @@ $$
 $$
 
 $$
-\text{There are } O(\
-
-log n) \text{ levels of recursion, but since } m \text{ does not change across levels, the total time across all levels is } O(n \cdot m).
+\text{There are } O(\log n) \text{ levels of recursion, but since }
+m \text{ does not change across levels, the total time across all levels is } O(n \cdot m).
 $$
 
 $$
-\text{Thus, even though the Master Theorem initially suggests } O(n), \text{ the actual time complexity becomes } O(n \cdot m) \text{ because the function } f(n) = O(m) \text{ adds significant work at each level of recursion.}
+\text{Thus, even though the Master Theorem initially suggests } O(n),
+$$
+
+$$
+\text{ the actual time complexity becomes } O(n \cdot m)
+$$
+
+$$
+\text{ because the function } f(n) = O(m) \text{ adds significant work at each level of recursion.}
 $$
 
 $$
@@ -272,6 +279,9 @@ $$
 
 $$
 T(n) = O(m) \quad \text{for} \ n = 1 \\
+$$
+
+$$
 T(n) = 2T(n/2) + O(m) \quad \text{for} \ n > 1
 $$
 
