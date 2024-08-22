@@ -1,6 +1,9 @@
 # Divide and Conquer Approach for Longest Common Prefix
 
 ### Index
+Certainly! Here's the updated index with the sections you've provided:
+
+### Index
 1. [Introduction](#introduction)
 2. [Step 1: Establish the Base Case](#step-1-establish-the-base-case)
 3. [Step 2: Divide the Problem](#step-2-divide-the-problem)
@@ -8,11 +11,21 @@
 5. [Step 4: Combine the Results](#step-4-combine-the-results)
 6. [Code Implementation](#code-implementation)
 7. [Time Complexity](#time-complexity)
-8. [Space Complexity](#space-complexity)
-9. [Conceptual Explanation of Time Complexity](#conceptual-explanation-of-time-complexity)
-10. [Simplified Explanation](#simplified-explanation)
+   1. [Step 1: Recurrence Relation](#step-1-recurrence-relation)
+   2. [Step 2: Compare with the General Form](#step-2-compare-with-the-general-form)
+   3. [Step 3: Calculate the Two Key Values](#step-3-calculate-the-two-key-values)
+   4. [Step 4: Apply the Master Theorem Cases](#step-4-apply-the-master-theorem-cases)
+   5. [Understanding the Contribution of \( f(n) = O(m) \)](#understanding-the-contribution-of-fn-om)
+   6. [How the Master Theorem Applies Here](#how-the-master-theorem-applies-here)
+   7. [Considering the Function \( f(n) = O(m) \)](#considering-the-function-fn-om)
+8. [Recurrence Relation](#recurrence-relation)
+9. [Conceptual Explanation of the Time Complexity](#conceptual-explanation-of-the-time-complexity)
+10. [Space Complexity](#space-complexity)
+   1. [Explanation](#explanation)
+   2. [Example](#example)
+11. [Simplified Explanation](#simplified-explanation)
 
----
+
 
 ## Introduction
 
@@ -331,6 +344,18 @@ $$
 There are } \log n \text{ recursive calls, each requiring } m \text{ space to store the result, so space complexity is }
  O(m \cdot \log n).
 $$
+
+### Explanation:
+
+There is a memory overhead since we store recursive calls in the execution stack. 
+
+There are \( \log n \) recursive calls, each requiring \( m \) space to store the result, so the space complexity is \( O(m \cdot \log n) \).
+
+### Example:
+
+If the algorithm processes an array of strings, where each string has a maximum length \( m \), the space required to store each string during recursion would be proportional to \( m \). The recursion depth \( \log n \) arises because the array is divided in half at each recursive step, leading to a logarithmic number of recursive calls relative to the size \( n \) of the input array.
+
+Thus, \( m \) represents the size or complexity of handling each individual recursive call, and the overall space complexity accounts for all the recursive calls stacked on top of each other.
 
 -----
 
