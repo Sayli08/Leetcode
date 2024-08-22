@@ -287,17 +287,7 @@ $$
 
 ---
 
-### Space Complexity : 
 
-$$
-\text{Space Complexity: } O(m \cdot \log n)
-$$
-
-$$
-\text{There is a memory overhead since we store recursive calls in the execution stack. 
-There are } \log n \text{ recursive calls, each requiring } m \text{ space to store the result, so space complexity is }
- O(m \cdot \log n).
-$$
 
 ---
 
@@ -330,6 +320,20 @@ $$
 $$
 
 ----
+
+### Space Complexity : 
+
+$$
+\text{Space Complexity: } O(m \cdot \log n)
+$$
+
+$$
+\text{There is a memory overhead since we store recursive calls in the execution stack. 
+There are } \log n \text{ recursive calls, each requiring } m \text{ space to store the result, so space complexity is }
+ O(m \cdot \log n).
+$$
+
+-----
 
 ## Simplified Explanation
 
