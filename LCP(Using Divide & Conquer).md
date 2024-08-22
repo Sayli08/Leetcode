@@ -94,9 +94,9 @@ String commonPrefix(String left,String right) {
 
 ---
 
-## Time Complexity
+# Time Complexity
 
-### Recurrence Relation
+## Step 1: Recurrence Relation
 The recurrence relation for the problem is:
 
 $$
@@ -107,7 +107,7 @@ where:
 - \( n \) is the number of strings.
 - \( m \) is the length of the strings (assuming all strings have the same length in the worst case).
 
-### Step 1: Compare with the General Form
+## Step 2: Compare with the General Form
 The general form of the recurrence relation in the Master Theorem is:
 
 $$
@@ -130,7 +130,7 @@ $$
 
 where \( k = 0 \) and \( p = 0 \).
 
-### Step 2: Calculate the Two Key Values
+## Step 3: Calculate the Two Key Values
 
 $$
 \text{Compute } \log_b(a) = \log_2(2) = 1
@@ -144,7 +144,7 @@ $$
 \text{So, } k = 0 \text{ (since } n^0 = 1)
 $$
 
-### Step 3: Apply the Master Theorem Cases
+## Step 4: Apply the Master Theorem Cases
 
 $$
 \text{Now, let’s compare } \log_b(a) \text{ with } k:
@@ -170,7 +170,7 @@ $$
 T(n) = O(n \cdot m)
 $$
 
-### Understanding the Contribution of \( f(n) = O(m) \)
+## Understanding the Contribution of \( f(n) = O(m) \)
 
 When we use the Master Theorem to solve recurrence relations like:
 
@@ -181,7 +181,7 @@ $$
 the result depends on how the function \( f(n) \) compares to the other parts of the recurrence.
 Here, \( f(n) = O(m) \) is the cost of the "combine" step in the divide and conquer algorithm, where you merge the results of the two recursive calls.
 
-### How the Master Theorem Applies Here
+## How the Master Theorem Applies Here
 
 $$
 \text{We computed two key values:}
@@ -201,7 +201,7 @@ $$
 T(n) = \Theta(n^{\log_b a}) = \Theta(n)
 $$
 
-### Considering the Function \( f(n) = O(m) \)
+## Considering the Function \( f(n) = O(m) \)
 
 The Master Theorem helps us determine the complexity based on the comparison between \( f(n) \) and the recursive structure. Here, \( f(n) = O(m) \) is the additional work done at each level of recursion, which is not simply absorbed by the recursive calls.
 
@@ -273,9 +273,8 @@ $$
 
 ---
 
-## Space Complexity
 
-### Recurrence Relation
+## Recurrence Relation
 
 $$
 T(n) = O(m) \quad \text{for} \ n = 1 \\
@@ -321,7 +320,7 @@ $$
 
 ----
 
-### Space Complexity : 
+# Space Complexity : 
 
 $$
 \text{Space Complexity: } O(m \cdot \log n)
