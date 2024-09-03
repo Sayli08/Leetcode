@@ -1,4 +1,4 @@
-```markdown
+
 ## Question 14: Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".
 
@@ -99,4 +99,4 @@ The line `if(i == strs[j].length() || strs[j].charAt(i) != c)` ensures that the 
 
 4. **Divide and Conquer**:
    - Use a divide and conquer approach to split the array into two halves, find the longest common prefix for each half, and then combine the results. This can help to optimize comparisons.
-```
+
