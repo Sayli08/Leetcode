@@ -74,7 +74,37 @@ Use a divide and conquer approach to split the array into two halves, find the l
 
 
 
+In the provided code snippet, the condition `if(i == strs[j].length() || strs[j].charAt(i) != c)` is a crucial part of the logic that determines whether the current character being examined is part of the longest common prefix among the given strings in the `strs` array.
 
+Let me break down this condition:
+
+### `if(i == strs[j].length() || strs[j].charAt(i) != c)`
+
+1. **`i == strs[j].length()`**: 
+   - This checks whether the current index `i` has reached the end of the string `strs[j]`.
+   - Strings in Java are 0-indexed, meaning that the index starts at 0. The length of the string is the number of characters in it, but since the index starts at 0, the valid indices are from `0` to `length - 1`.
+   - If `i` equals `strs[j].length()`, it means that we have reached the end of the string `strs[j]`, and there are no more characters left in this string to compare with the other strings.
+   - In this case, the current prefix cannot be extended further because one of the strings in the array has ended.
+
+2. **`strs[j].charAt(i) != c`**:
+   - This checks whether the character at the current index `i` in the string `strs[j]` is different from the character `c`, which is the character at index `i` in the first string `strs[0]`.
+   - If the characters are not the same, it means that the common prefix among all strings has ended at the previous index, and we should stop adding characters to the prefix.
+
+### Explanation of the Logic
+- The loop iterates over each character `c` in the first string `prefix` (which is `strs[0]`).
+- For each character in `prefix`, the inner loop checks if this character is present at the same position in all other strings (`strs[j]`).
+- The condition `if(i == strs[j].length() || strs[j].charAt(i) != c)` has two possible scenarios:
+  1. If one of the strings is shorter than the current length of the prefix (`i == strs[j].length()`), it indicates that this string can't possibly have a longer common prefix, so the method should return the prefix found so far.
+  2. If the character at index `i` in any string doesn't match the corresponding character `c` from `prefix`, the method should return the prefix found so far, as the common prefix has ended.
+
+### Example
+Consider the input `strs = ["flower", "flow", "flight"]`:
+- The initial `prefix` is "flower".
+- The outer loop starts checking each character of "flower".
+- At index `i = 2` ("f", "l", "o"), everything matches.
+- At index `i = 3`, "flower" has 'w', "flow" has 'w', but "flight" has 'i'. So the condition `strs[j].charAt(i) != c` becomes true, and the method returns "flo", which is the longest common prefix.
+
+The line `if(i == strs[j].length() || strs[j].charAt(i) != c)` ensures that the loop only continues while the characters match and there are characters available to compare in each string. Once a mismatch or the end of a string is found, it stops and returns the current result as the longest common prefix.
 
 
 
