@@ -108,8 +108,30 @@ String commonPrefix(String left,String right) {
 } 
 ```
 
----
+### Here's the recursion tree for the Longest Common Prefix (LCP) problem
 
+```
+(1) longestCommonPrefix(strs, 0, 2) --> "fl"
+        /                        \
+(2) longestCommonPrefix      (5) longestCommonPrefix
+     (strs, 0, 1) --> "flow"       (strs, 2, 2) --> "flight"
+        /       \
+(3) longestCommonPrefix  (4) longestCommonPrefix
+     (strs, 0, 0) --> "flower"   (strs, 1, 1) --> "flow"
+
+```
+
+### Call Numbering Summary:
+```
+Call 1: longestCommonPrefix(strs, 0, 2)
+Call 2: longestCommonPrefix(strs, 0, 1)
+Call 3: longestCommonPrefix(strs, 0, 0) → Base case: returns "flower"
+Call 4: longestCommonPrefix(strs, 1, 1) → Base case: returns "flow"
+Combine (3) and (4): commonPrefix("flower", "flow") → "flow"
+Call 5: longestCommonPrefix(strs, 2, 2) → Base case: returns "flight"
+Combine (2) and (5): commonPrefix("flow", "flight") → "fl"
+
+```
 # Time Complexity
 
 ## Step 1: Recurrence Relation
