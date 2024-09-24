@@ -353,7 +353,7 @@ $$
 $$
 
 $$
-\text{The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to } O(n \cdot m \cdot \log n).
+\text{The total work combines the number of comparisons at each level with the number of levels in the recursion. Therefore, the overall time complexity is proportional to } O( m \cdot \log n).
 $$
 
 ----
