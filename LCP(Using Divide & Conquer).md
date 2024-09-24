@@ -33,6 +33,8 @@ This document explains the divide and conquer approach for finding the longest c
 
 [Link for Divide and Conquer Algorithm](https://github.com/Sayli08/Algorithms/blob/main/DivideAndConquerStrategy.md)
 
+[Link for Master Theorem Dividing Function](https://github.com/Sayli08/Algorithms/blob/main/MasterTheoremForDividingFunction.md)
+
 ## Step 1: Establish the Base Case
 - If the array of strings is empty, return an empty string.
 - If the array contains only one string, return that string as the prefix.
